@@ -13,6 +13,8 @@
 		012ACC5119C69AA00006E3CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012ACC5019C69AA00006E3CE /* Images.xcassets */; };
 		012ACC5419C69AA00006E3CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 012ACC5219C69AA00006E3CE /* LaunchScreen.xib */; };
 		012ACC6019C69AA00006E3CE /* AltimeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012ACC5F19C69AA00006E3CE /* AltimeterTests.swift */; };
+		012ACC6A19C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 012ACC6919C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg */; };
+		01D09AB619C6B5800046C938 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D09AB519C6B5800046C938 /* SwiftRegex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		012ACC5919C69AA00006E3CE /* AltimeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AltimeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		012ACC5E19C69AA00006E3CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		012ACC5F19C69AA00006E3CE /* AltimeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltimeterTests.swift; sourceTree = "<group>"; };
+		012ACC6919C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MidContinent_altimeter_mb.jpg; sourceTree = "<group>"; };
+		01D09AB519C6B5800046C938 /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				012ACC5019C69AA00006E3CE /* Images.xcassets */,
 				012ACC5219C69AA00006E3CE /* LaunchScreen.xib */,
 				012ACC4719C69AA00006E3CE /* Supporting Files */,
+				01D09AB519C6B5800046C938 /* SwiftRegex.swift */,
 			);
 			path = Altimeter;
 			sourceTree = "<group>";
@@ -90,6 +95,7 @@
 		012ACC4719C69AA00006E3CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				012ACC6919C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg */,
 				012ACC4819C69AA00006E3CE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -192,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012ACC6A19C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg in Resources */,
 				012ACC4F19C69AA00006E3CE /* Main.storyboard in Resources */,
 				012ACC5419C69AA00006E3CE /* LaunchScreen.xib in Resources */,
 				012ACC5119C69AA00006E3CE /* Images.xcassets in Resources */,
@@ -214,6 +221,7 @@
 			files = (
 				012ACC4C19C69AA00006E3CE /* ViewController.swift in Sources */,
 				012ACC4A19C69AA00006E3CE /* AppDelegate.swift in Sources */,
+				01D09AB619C6B5800046C938 /* SwiftRegex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +413,7 @@
 				012ACC6519C69AA00006E3CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		012ACC6619C69AA00006E3CE /* Build configuration list for PBXNativeTarget "AltimeterTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +422,7 @@
 				012ACC6819C69AA00006E3CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
