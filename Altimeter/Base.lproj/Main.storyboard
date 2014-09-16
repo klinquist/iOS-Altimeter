@@ -19,24 +19,6 @@
                             <imageView userInteractionEnabled="NO" alpha="0.14999999999999969" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MidContinent_altimeter_mb.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5Y2-tq-pP8">
                                 <rect key="frame" x="0.0" y="-64" width="600" height="728"/>
                             </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Altitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHa-Lz-ArX">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="374" width="201" height="33"/>
-                                </variation>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUt-v8-Mtw">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="195" y="366" width="128" height="49"/>
-                                </variation>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wGo-3p-MeX">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -80,6 +62,24 @@
                                     <rect key="frame" x="7" y="247" width="190" height="41"/>
                                 </variation>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Altitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHa-Lz-ArX">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="374" width="201" height="33"/>
+                                </variation>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUt-v8-Mtw">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="195" y="366" width="128" height="49"/>
+                                </variation>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXw-2n-0nb">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.20588779900000001" green="0.32399748509999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -109,13 +109,13 @@
                                     <rect key="frame" x="209" y="163" width="97" height="30"/>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Airport Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R66-Nh-ZvE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closest Airport Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R66-Nh-ZvE">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="7" y="50" width="176" height="21"/>
+                                    <rect key="frame" x="7" y="50" width="177" height="23"/>
                                 </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="KSJC" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pby-Il-OmM">
@@ -126,6 +126,15 @@
                                     <rect key="frame" x="209" y="46" width="97" height="30"/>
                                 </variation>
                             </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLE-I8-WG8">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="7" y="74" width="299" height="21"/>
+                                </variation>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaZ-jo-y2w">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.20588779900000001" green="0.32399748509999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -141,7 +150,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="7" y="88" width="299" height="46"/>
+                                    <rect key="frame" x="7" y="96" width="299" height="46"/>
                                 </variation>
                                 <connections>
                                     <action selector="retrieveButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wQG-sP-PSz"/>
@@ -151,33 +160,35 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="IHa-Lz-ArX"/>
-                                <exclude reference="lUt-v8-Mtw"/>
                                 <exclude reference="wGo-3p-MeX"/>
                                 <exclude reference="j4d-bt-G4Y"/>
                                 <exclude reference="41c-7s-v8y"/>
                                 <exclude reference="MdJ-UM-7hq"/>
                                 <exclude reference="4lZ-p8-hlw"/>
+                                <exclude reference="IHa-Lz-ArX"/>
+                                <exclude reference="lUt-v8-Mtw"/>
                                 <exclude reference="zXw-2n-0nb"/>
                                 <exclude reference="t93-O4-ZJC"/>
                                 <exclude reference="R66-Nh-ZvE"/>
                                 <exclude reference="Pby-Il-OmM"/>
+                                <exclude reference="dLE-I8-WG8"/>
                                 <exclude reference="jaZ-jo-y2w"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="IHa-Lz-ArX"/>
-                                <include reference="lUt-v8-Mtw"/>
                                 <include reference="wGo-3p-MeX"/>
                                 <include reference="j4d-bt-G4Y"/>
                                 <include reference="41c-7s-v8y"/>
                                 <include reference="MdJ-UM-7hq"/>
                                 <include reference="4lZ-p8-hlw"/>
+                                <include reference="IHa-Lz-ArX"/>
+                                <include reference="lUt-v8-Mtw"/>
                                 <include reference="zXw-2n-0nb"/>
                                 <include reference="t93-O4-ZJC"/>
                                 <include reference="R66-Nh-ZvE"/>
                                 <include reference="Pby-Il-OmM"/>
+                                <include reference="dLE-I8-WG8"/>
                                 <include reference="jaZ-jo-y2w"/>
                             </mask>
                         </variation>
@@ -185,6 +196,7 @@
                     <connections>
                         <outlet property="airportAltitudeTextBox" destination="wGo-3p-MeX" id="tAd-zU-iW0"/>
                         <outlet property="airportBarometricPressureTextBox" destination="t93-O4-ZJC" id="io2-H5-86Q"/>
+                        <outlet property="airportNameLabel" destination="dLE-I8-WG8" id="QPi-02-2Id"/>
                         <outlet property="airportNameValue" destination="Pby-Il-OmM" id="QeW-un-93g"/>
                         <outlet property="retrieveButton" destination="jaZ-jo-y2w" id="Wiv-VB-wMB"/>
                         <outlet property="yourAltitudeCaptionLabel" destination="IHa-Lz-ArX" id="CjG-NM-Huk"/>

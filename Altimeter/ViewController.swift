@@ -7,7 +7,7 @@
 //
 
 
-var wuapi = ""  //weather underground API key
+var wuapi = "YOUR_API_KEY"  //weather underground API key
 
 import UIKit
 import CoreMotion
@@ -36,6 +36,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var retrieveButton: UIButton!
     
+    @IBOutlet weak var airportNameLabel: UILabel!
+    
     @IBOutlet weak var yourAltitudeCaptionLabel: UILabel!
     
     @IBOutlet weak var airportNameValue: UITextField!
@@ -54,19 +56,20 @@ class ViewController: UIViewController {
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
 
             var datastring = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println(datastring)
-            
+            //println(datastring)
             let value = datastring
             let pattern = "\\\"pressure_in\\\":\\\"([-+]?[0-9]*\\.?[0-9]+.)\\\""
-            for m in value =~ pattern {
-                self.airportBarometricPressureTextBox.text = m
-            }
+            var m = value =~ pattern
+            self.airportBarometricPressureTextBox.text = m[0]
             let elevationpattern = "\\\"elevation\\\":\\\"([-+]?[0-9]*\\.?[0-9]+.)\\\""
-            for m in value =~ elevationpattern {
-                var AltConversion:Int = 0
-                var AltFloat = (m as NSString).floatValue * 3.28084
-                self.airportAltitudeTextBox.text = NSString(format: "%.0f", AltFloat)
-            }
+            m = value =~ elevationpattern
+            var AltConversion:Int = 0
+            var AltFloat = (m[0] as NSString).floatValue * 3.28084
+            self.airportAltitudeTextBox.text = NSString(format: "%.0f", AltFloat)
+            let citynamepattern = "\\\"city\\\":\\\"([a-zA-Z ]+.)\\\""
+            m = value =~ citynamepattern
+            self.airportNameLabel.hidden = false
+            self.airportNameLabel.text = m[0]
             
         }
 
