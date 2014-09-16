@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Kristopher Linquist. All rights reserved.
 //
 
+
+var wuapi = ""  //weather underground API key
+
 import UIKit
 import CoreMotion
 
@@ -31,6 +34,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var yourAltitudeLabel: UILabel!
     
+    @IBOutlet weak var retrieveButton: UIButton!
+    
     @IBOutlet weak var yourAltitudeCaptionLabel: UILabel!
     
     @IBOutlet weak var airportNameValue: UITextField!
@@ -40,8 +45,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func retrieveButtonPressed(sender: UIButton) {
+        airportBarometricPressureTextBox.text = "Waiting..."
+        airportAltitudeTextBox.text = "Waiting..."
+        airportNameValue.resignFirstResponder()
         yourAltitudeLabel.hidden = false
-        let url = NSURL(string: "http://api.wunderground.com/api/343fae88a6936714/forecast/geolookup/conditions/q/" +  airportNameValue.text + ".json")
+        let url = NSURL(string: "http://api.wunderground.com/api/" + wuapi + "/forecast/geolookup/conditions/q/" +  airportNameValue.text + ".json")
         let request = NSURLRequest(URL: url)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
 
@@ -56,11 +64,12 @@ class ViewController: UIViewController {
             let elevationpattern = "\\\"elevation\\\":\\\"([-+]?[0-9]*\\.?[0-9]+.)\\\""
             for m in value =~ elevationpattern {
                 var AltConversion:Int = 0
-                var AltFloat = (m as NSString).floatValue
+                var AltFloat = (m as NSString).floatValue * 3.28084
                 self.airportAltitudeTextBox.text = NSString(format: "%.0f", AltFloat)
             }
             
         }
+
     }
 
     
@@ -74,11 +83,15 @@ class ViewController: UIViewController {
                 if !(error != nil) {
                     pressure = data.pressure * 0.2953
                     self.yourBarometricPressureTextBox.text = NSString(format:"%.2f", pressure)
-                    self.UpdateAltitude()
+                    if (self.airportNameValue != ""){
+                        self.UpdateAltitude()
+                    }
                  
                 }
             })
-        }
+       } else {
+          self.yourBarometricPressureTextBox.placeholder = "unsupported"
+       }
         
 
    
