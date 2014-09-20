@@ -7,23 +7,28 @@
 //
 
 
-var wuapi = "YOUR_API_KEY"  //weather underground API key
-
+var wuapi = "343fae88a6936714"  //weather underground API key
 import UIKit
-import CoreMotion
+let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+
+
+
+
 
 class ViewController: UIViewController {
     
     func UpdateAltitude() {
-        yourAltitudeCaptionLabel.hidden = false
-        yourAltitudeLabel.hidden = false
-        var airportBarometricPressurehPa:Float = (airportBarometricPressureTextBox.text as NSString).floatValue * 33.8638866667
-        var yourBarometricPressurehPa:Float = (yourBarometricPressureTextBox.text as NSString).floatValue * 33.8638866667
-        var yourCalculatedAlt = pow(10, log10(yourBarometricPressurehPa/airportBarometricPressurehPa)/5.2558797)-1
-        yourCalculatedAlt = yourCalculatedAlt / (-6.8755856 * pow(10,-6))
-        var yourCalculatedAltString = NSString(format: "%.0f", yourCalculatedAlt)
-        yourBarometricPressureTextBox.resignFirstResponder()
-        yourAltitudeLabel.text = yourCalculatedAltString + " ft"
+        if (yourBarometricPressureTextBox.text != "" && airportBarometricPressureTextBox.text != ""){
+            yourAltitudeCaptionLabel.hidden = false
+            yourAltitudeLabel.hidden = false
+            var airportBarometricPressurehPa:Float = (airportBarometricPressureTextBox.text as NSString).floatValue * 33.8638866667
+            var yourBarometricPressurehPa:Float = (yourBarometricPressureTextBox.text as NSString).floatValue * 33.8638866667
+            var yourCalculatedAlt = pow(10, log10(yourBarometricPressurehPa/airportBarometricPressurehPa)/5.2558797)-1
+            yourCalculatedAlt = yourCalculatedAlt / (-6.8755856 * pow(10,-6)) + (airportAltitudeTextBox.text as NSString).floatValue
+            var yourCalculatedAltString = NSString(format: "%.0f", yourCalculatedAlt)
+            yourBarometricPressureTextBox.resignFirstResponder()
+            yourAltitudeLabel.text = yourCalculatedAltString + " ft"
+        }
     }
 
     @IBOutlet weak var airportBarometricPressureTextBox: UITextField!
@@ -51,7 +56,7 @@ class ViewController: UIViewController {
         airportAltitudeTextBox.text = "Waiting..."
         airportNameValue.resignFirstResponder()
         yourAltitudeLabel.hidden = false
-        let url = NSURL(string: "http://api.wunderground.com/api/" + wuapi + "/forecast/geolookup/conditions/q/" +  airportNameValue.text + ".json")
+        let url = NSURL(string: "http://api.wunderground.com/api/" + wuapi + "/forecast/geolookup/conditions/q/" +  airportNameValue.text.uppercaseString + ".json")
         let request = NSURLRequest(URL: url)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
 
@@ -64,13 +69,13 @@ class ViewController: UIViewController {
             let elevationpattern = "\\\"elevation\\\":\\\"([-+]?[0-9]*\\.?[0-9]+.)\\\""
             m = value =~ elevationpattern
             var AltConversion:Int = 0
-            var AltFloat = (m[0] as NSString).floatValue * 3.28084
+            var AltFloat = (m[0] as NSString).floatValue * 3.28084  //convert meters to feet
             self.airportAltitudeTextBox.text = NSString(format: "%.0f", AltFloat)
             let citynamepattern = "\\\"city\\\":\\\"([a-zA-Z ]+.)\\\""
             m = value =~ citynamepattern
             self.airportNameLabel.hidden = false
             self.airportNameLabel.text = m[0]
-            
+
         }
 
     }
@@ -79,24 +84,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       var altimeter = CMAltimeter()
-       var pressure:Float = 0
-       if CMAltimeter.isRelativeAltitudeAvailable() {
-            altimeter.startRelativeAltitudeUpdatesToQueue(NSOperationQueue.mainQueue(), withHandler: { data, error in
-                if !(error != nil) {
-                    pressure = data.pressure * 0.2953
-                    self.yourBarometricPressureTextBox.text = NSString(format:"%.2f", pressure)
-                    if (self.airportNameValue != ""){
-                        self.UpdateAltitude()
-                    }
-                 
-                }
-            })
-       } else {
-          self.yourBarometricPressureTextBox.placeholder = "unsupported"
-       }
-        
 
+        var updatePressureTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updatePressure"), userInfo: nil, repeats: true)
+
+        
    
     }
 
@@ -104,7 +95,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func updatePressure()
+    {
+        let pressure = appDelegate.pressure
+        if (pressure > 1) {
+            self.yourBarometricPressureTextBox.text = NSString(format: "%.4f", pressure)
+            UpdateAltitude()
+        }
 
-
+    }
 }
 

@@ -10,13 +10,87 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Altimeter/ViewController.swift"
-            timestampString = "432526958.57572"
+            timestampString = "432940053.532103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "retrieveButtonPressed(_:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Altimeter/AppDelegate.swift"
+            timestampString = "432937183.027166"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Altimeter.AppDelegate.altimeter.getter : ObjectiveC.CMAltimeter"
+                  moduleName = "Altimeter"
+                  urlString = "file:///Users/kris/Desktop/Altimeter/Altimeter/AppDelegate.swift"
+                  timestampString = "432941452.484146"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Altimeter.AppDelegate.altimeter.getter : ObjectiveC.CMAltimeter"
+                  moduleName = "Altimeter"
+                  urlString = "file:///Users/kris/Desktop/Altimeter/Altimeter/AppDelegate.swift"
+                  timestampString = "432941452.484301"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Altimeter.AppDelegate.altimeter.setter : ObjectiveC.CMAltimeter"
+                  moduleName = "Altimeter"
+                  urlString = "file:///Users/kris/Desktop/Altimeter/Altimeter/AppDelegate.swift"
+                  timestampString = "432941452.484423"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Altimeter.AppDelegate.init (Altimeter.AppDelegate.Type)() -&gt; Altimeter.AppDelegate"
+                  moduleName = "Altimeter"
+                  urlString = "file:///Users/kris/Desktop/Altimeter/Altimeter/AppDelegate.swift"
+                  timestampString = "432941452.484535"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
