@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "012ACC4319C69AA00006E3CE"
-               BuildableName = "Altimeter.app"
-               BlueprintName = "Altimeter"
-               ReferencedContainer = "container:Altimeter.xcodeproj">
+               BuildableName = "BaroAltimeter.app"
+               BlueprintName = "BaroAltimeter"
+               ReferencedContainer = "container:BaroAltimeter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "012ACC5819C69AA00006E3CE"
-               BuildableName = "AltimeterTests.xctest"
-               BlueprintName = "AltimeterTests"
-               ReferencedContainer = "container:Altimeter.xcodeproj">
+               BuildableName = "BaroAltimeterTests.xctest"
+               BlueprintName = "BaroAltimeterTests"
+               ReferencedContainer = "container:BaroAltimeter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "012ACC5819C69AA00006E3CE"
-               BuildableName = "AltimeterTests.xctest"
-               BlueprintName = "AltimeterTests"
-               ReferencedContainer = "container:Altimeter.xcodeproj">
+               BuildableName = "BaroAltimeterTests.xctest"
+               BlueprintName = "BaroAltimeterTests"
+               ReferencedContainer = "container:BaroAltimeter.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "012ACC4319C69AA00006E3CE"
-            BuildableName = "Altimeter.app"
-            BlueprintName = "Altimeter"
-            ReferencedContainer = "container:Altimeter.xcodeproj">
+            BuildableName = "BaroAltimeter.app"
+            BlueprintName = "BaroAltimeter"
+            ReferencedContainer = "container:BaroAltimeter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "012ACC4319C69AA00006E3CE"
-            BuildableName = "Altimeter.app"
-            BlueprintName = "Altimeter"
-            ReferencedContainer = "container:Altimeter.xcodeproj">
+            BuildableName = "BaroAltimeter.app"
+            BlueprintName = "BaroAltimeter"
+            ReferencedContainer = "container:BaroAltimeter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "012ACC4319C69AA00006E3CE"
-            BuildableName = "Altimeter.app"
-            BlueprintName = "Altimeter"
-            ReferencedContainer = "container:Altimeter.xcodeproj">
+            BuildableName = "BaroAltimeter.app"
+            BlueprintName = "BaroAltimeter"
+            ReferencedContainer = "container:BaroAltimeter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

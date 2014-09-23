@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             altimeter.startRelativeAltitudeUpdatesToQueue(queue,
                 withHandler: {(data: CMAltitudeData!, error: NSError!) in
                     self.pressure = data.pressure * 0.295299802
-                    println("Relative pressure is \(data.pressure) kpa")
+                    //println("Relative pressure is \(data.pressure) kpa")
 
                     
             })
