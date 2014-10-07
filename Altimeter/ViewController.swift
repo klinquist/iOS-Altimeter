@@ -57,7 +57,7 @@ class ViewController: UIViewController {
          if (yourBarometricPressureTextBox.text != "" && airportBarometricPressureTextBox.text != ""){
             UpdateAltitude()
          } else {
-            var alert = UIAlertController(title: "Error", message: "Manually enter airport pressure & altitude or enter IATA airport code and click the 'Retrieve' button.", preferredStyle: UIAlertControllerStyle.Alert)
+            var alert = UIAlertController(title: "Error", message: "Manually enter airport pressure & altitude or enter ICAO airport code and click the 'Retrieve' button.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
@@ -91,15 +91,15 @@ class ViewController: UIViewController {
                         self.airportNameLabel.hidden = false
                         self.airportNameLabel.text = m[0]
                     } else {
-                        var alert = UIAlertController(title: "Error", message: "Invalid IATA code.", preferredStyle: UIAlertControllerStyle.Alert)
+                        var alert = UIAlertController(title: "Error", message: "Invalid ICAO code.", preferredStyle: UIAlertControllerStyle.Alert)
                         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                         self.presentViewController(alert, animated: true, completion: nil)
                     }
                 }
             } else {
                 self.airportNameLabel.hidden = false
-                self.airportNameLabel.text = "Error. Type a valid IATA code."
-                var alert = UIAlertController(title: "Error", message: "Enter a valid IATA Airport Code", preferredStyle: UIAlertControllerStyle.Alert)
+                self.airportNameLabel.text = "Error. Type a valid ICAO code."
+                var alert = UIAlertController(title: "Error", message: "Enter a valid ICAO Airport Code", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
                 yourAltitudeCaptionLabel.hidden = true
