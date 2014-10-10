@@ -22,7 +22,7 @@ class ViewController: UIViewController {
             var airportBarometricPressurehPa:Float = (airportBarometricPressureTextBox.text as NSString).floatValue * 33.8638866667
             var yourBarometricPressurehPa:Float = (yourBarometricPressureTextBox.text as NSString).floatValue * 33.8638866667
             var yourCalculatedAlt = pow(10, log10(yourBarometricPressurehPa/airportBarometricPressurehPa)/5.2558797)-1
-            yourCalculatedAlt = yourCalculatedAlt / (-6.8755856 * pow(10,-6)) + (airportAltitudeTextBox.text as NSString).floatValue
+            yourCalculatedAlt = yourCalculatedAlt / (-6.8755856 * pow(10,-6))
             var yourCalculatedAltString = NSString(format: "%.0f", yourCalculatedAlt)
             yourBarometricPressureTextBox.resignFirstResponder()
             yourAltitudeLabel.text = yourCalculatedAltString + " ft"
