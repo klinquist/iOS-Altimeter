@@ -12,20 +12,9 @@
 		012ACC4F19C69AA00006E3CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012ACC4D19C69AA00006E3CE /* Main.storyboard */; };
 		012ACC5119C69AA00006E3CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012ACC5019C69AA00006E3CE /* Images.xcassets */; };
 		012ACC5419C69AA00006E3CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 012ACC5219C69AA00006E3CE /* LaunchScreen.xib */; };
-		012ACC6019C69AA00006E3CE /* AltimeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012ACC5F19C69AA00006E3CE /* AltimeterTests.swift */; };
 		012ACC6A19C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 012ACC6919C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg */; };
-		01D09AB619C6B5800046C938 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D09AB519C6B5800046C938 /* SwiftRegex.swift */; };
+		01E785931F0DB23F0034E9C7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E785921F0DB23F0034E9C7 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		012ACC5A19C69AA00006E3CE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 012ACC3C19C69AA00006E3CE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 012ACC4319C69AA00006E3CE;
-			remoteInfo = Altimeter;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		012ACC4419C69AA00006E3CE /* BaroAltimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaroAltimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,22 +24,12 @@
 		012ACC4E19C69AA00006E3CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		012ACC5019C69AA00006E3CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		012ACC5319C69AA00006E3CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		012ACC5919C69AA00006E3CE /* BaroAltimeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaroAltimeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		012ACC5E19C69AA00006E3CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		012ACC5F19C69AA00006E3CE /* AltimeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltimeterTests.swift; sourceTree = "<group>"; };
 		012ACC6919C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MidContinent_altimeter_mb.jpg; sourceTree = "<group>"; };
-		01D09AB519C6B5800046C938 /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
+		01E785921F0DB23F0034E9C7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		012ACC4119C69AA00006E3CE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		012ACC5619C69AA00006E3CE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,7 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				012ACC4619C69AA00006E3CE /* Altimeter */,
-				012ACC5C19C69AA00006E3CE /* AltimeterTests */,
 				012ACC4519C69AA00006E3CE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				012ACC4419C69AA00006E3CE /* BaroAltimeter.app */,
-				012ACC5919C69AA00006E3CE /* BaroAltimeterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,9 +62,9 @@
 				012ACC4B19C69AA00006E3CE /* ViewController.swift */,
 				012ACC4D19C69AA00006E3CE /* Main.storyboard */,
 				012ACC5019C69AA00006E3CE /* Images.xcassets */,
+				01E785921F0DB23F0034E9C7 /* SwiftyJSON.swift */,
 				012ACC5219C69AA00006E3CE /* LaunchScreen.xib */,
 				012ACC4719C69AA00006E3CE /* Supporting Files */,
-				01D09AB519C6B5800046C938 /* SwiftRegex.swift */,
 			);
 			path = Altimeter;
 			sourceTree = "<group>";
@@ -97,23 +74,6 @@
 			children = (
 				012ACC6919C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg */,
 				012ACC4819C69AA00006E3CE /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		012ACC5C19C69AA00006E3CE /* AltimeterTests */ = {
-			isa = PBXGroup;
-			children = (
-				012ACC5F19C69AA00006E3CE /* AltimeterTests.swift */,
-				012ACC5D19C69AA00006E3CE /* Supporting Files */,
-			);
-			path = AltimeterTests;
-			sourceTree = "<group>";
-		};
-		012ACC5D19C69AA00006E3CE /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				012ACC5E19C69AA00006E3CE /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,40 +98,19 @@
 			productReference = 012ACC4419C69AA00006E3CE /* BaroAltimeter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		012ACC5819C69AA00006E3CE /* BaroAltimeterTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 012ACC6619C69AA00006E3CE /* Build configuration list for PBXNativeTarget "BaroAltimeterTests" */;
-			buildPhases = (
-				012ACC5519C69AA00006E3CE /* Sources */,
-				012ACC5619C69AA00006E3CE /* Frameworks */,
-				012ACC5719C69AA00006E3CE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				012ACC5B19C69AA00006E3CE /* PBXTargetDependency */,
-			);
-			name = BaroAltimeterTests;
-			productName = AltimeterTests;
-			productReference = 012ACC5919C69AA00006E3CE /* BaroAltimeterTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		012ACC3C19C69AA00006E3CE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Kristopher Linquist";
 				TargetAttributes = {
 					012ACC4319C69AA00006E3CE = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = YYE9CDH9RT;
-					};
-					012ACC5819C69AA00006E3CE = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 012ACC4319C69AA00006E3CE;
+						LastSwiftMigration = 0900;
 					};
 				};
 			};
@@ -189,7 +128,6 @@
 			projectRoot = "";
 			targets = (
 				012ACC4319C69AA00006E3CE /* BaroAltimeter */,
-				012ACC5819C69AA00006E3CE /* BaroAltimeterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -206,13 +144,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		012ACC5719C69AA00006E3CE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -222,27 +153,11 @@
 			files = (
 				012ACC4C19C69AA00006E3CE /* ViewController.swift in Sources */,
 				012ACC4A19C69AA00006E3CE /* AppDelegate.swift in Sources */,
-				01D09AB619C6B5800046C938 /* SwiftRegex.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		012ACC5519C69AA00006E3CE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				012ACC6019C69AA00006E3CE /* AltimeterTests.swift in Sources */,
+				01E785931F0DB23F0034E9C7 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		012ACC5B19C69AA00006E3CE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 012ACC4319C69AA00006E3CE /* BaroAltimeter */;
-			targetProxy = 012ACC5A19C69AA00006E3CE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		012ACC4D19C69AA00006E3CE /* Main.storyboard */ = {
@@ -277,15 +192,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -319,8 +238,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -328,6 +249,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -337,6 +259,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -346,8 +269,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Altimeter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.linquist.altimeter;
 				PRODUCT_NAME = BaroAltimeter;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
@@ -357,43 +284,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Altimeter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.linquist.altimeter;
 				PRODUCT_NAME = BaroAltimeter;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = "arm64 armv7";
-			};
-			name = Release;
-		};
-		012ACC6719C69AA00006E3CE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AltimeterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = BaroAltimeterTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Altimeter.app/Altimeter";
-			};
-			name = Debug;
-		};
-		012ACC6819C69AA00006E3CE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AltimeterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = BaroAltimeterTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Altimeter.app/Altimeter";
 			};
 			name = Release;
 		};
@@ -414,15 +311,6 @@
 			buildConfigurations = (
 				012ACC6419C69AA00006E3CE /* Debug */,
 				012ACC6519C69AA00006E3CE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		012ACC6619C69AA00006E3CE /* Build configuration list for PBXNativeTarget "BaroAltimeterTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				012ACC6719C69AA00006E3CE /* Debug */,
-				012ACC6819C69AA00006E3CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
