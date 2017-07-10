@@ -3,8 +3,9 @@
 //  Altimeter
 //
 //  Created by Kristopher Linquist
-//  Copyright (c) 2014 Kristopher Linquist. All rights reserved.
+//  Copyright (c) 2017 Kristopher Linquist. All rights reserved.
 //
+
 
 
 var wuapi = "343fae88a6936714"  //weather underground API key
@@ -16,7 +17,7 @@ import CoreMotion
 var altimeter = CMAltimeter() // Lazily load CMAltimeter
 var queue = OperationQueue()
 import CoreLocation
-
+import AVFoundation
 
 
 var pressure:Float = 0.00
@@ -25,10 +26,19 @@ var gotPressure:Bool = false;
 var gotAirport:Bool = false;
 var airportPress:Float = 0.00;
 var airportAlt:Float = 0.00;
+var prevAlt:String = "";
+var prevAltFull:String = "";
+var currentAltFull:String = "";
+var currentAlt:String = "";
+var initialSpeech:Bool = false;
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager:CLLocationManager!
     
+    let synthesizer = AVSpeechSynthesizer()
+    let audioSession = AVAudioSession.sharedInstance()
+    var myUtterance = AVSpeechUtterance(string: "")
+    var lastPlayingUtterance: AVSpeechUtterance?
     
     @IBOutlet weak var airportBarometricPressureTextBox: UITextField!
     
@@ -46,39 +56,40 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var airportNameValue: UITextField!
     
-    @IBAction func calculateButton(_ sender: UIButton) {
-        
-        if (yourBarometricPressureTextBox.text != "" && airportBarometricPressureTextBox.text != ""){
-            //UpdateAltitude()
-        } else {
-            let alert = UIAlertController(title: "Error", message: "Manually enter airport pressure & altitude or enter ICAO airport code and click the 'Retrieve' button.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-        
-    }
+//    @IBAction func calculateButton(_ sender: UIButton) {
+//
+//        if (yourBarometricPressureTextBox.text != "" && airportBarometricPressureTextBox.text != ""){
+//            //UpdateAltitude()
+//        } else {
+//            let alert = UIAlertController(title: "Error", message: "Manually enter airport pressure & altitude or enter ICAO airport code and click the 'Retrieve' button.", preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//        }
+//
+//    }
+    
     
     @IBAction func retrieveButtonPressed(_ sender: UIButton) {
-        airportBarometricPressureTextBox.text = "Waiting..."
-        airportAltitudeTextBox.text = "Waiting..."
-        airportNameValue.resignFirstResponder()
-        yourAltitudeLabel.isHidden = false
-        var airport = airportNameValue.text!.uppercased()
-        if (airport.characters.count == 4) {
-            populateFromAirport(airport: airport);
-        } else {
-            updateLabel(progressText: "Type a valid ICAO code")
-            let alert = UIAlertController(title: "Error", message: "Enter a valid ICAO Airport Code", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            self.yourAltitudeCaptionLabel.isHidden = true
-            self.yourAltitudeLabel.isHidden = true
-        }
+        determineMyCurrentLocation()
+//        airportBarometricPressureTextBox.text = "Waiting..."
+//        airportAltitudeTextBox.text = "Waiting..."
+//        airportNameValue.resignFirstResponder()
+//        yourAltitudeLabel.isHidden = false
+//        var airport = airportNameValue.text!.uppercased()
+//        if (airport.characters.count == 4) {
+//            populateFromAirport(airport: airport);
+//        } else {
+//            updateLabel(progressText: "Type a valid ICAO code")
+//            let alert = UIAlertController(title: "Error", message: "Enter a valid ICAO Airport Code", preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//            self.yourAltitudeCaptionLabel.isHidden = true
+//            self.yourAltitudeLabel.isHidden = true
+//        }
     }
     
     
     func populateFromAirport(airport: String) {
-        self.updateLabel(progressText: "Finding nearest airport...")
         let url = URL(string: "https://api.wunderground.com/api/" + wuapi + "/forecast/geolookup/conditions/q/" +  airport + ".json")
         let request = URLRequest(url: url!)
         let session = URLSession.shared
@@ -88,19 +99,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 let json = try JSON(data: data)
                 let city = json["location"]["city"].stringValue
                 let elevation = json["current_observation"]["display_location"]["elevation"].stringValue
-                let AltFloat = Float(elevation)! * 3.28084  //convert meters to feet
-                let baroPressure = json["current_observation"]["pressure_in"].stringValue
-                DispatchQueue.main.sync() {
-                    self.updateLabel(progressText: city)
-                    self.airportAltitudeTextBox.text = String(format: "%.0f", AltFloat)
-                    self.airportBarometricPressureTextBox.text = baroPressure
-                    gotAirport = true;
-                    airportPress = (baroPressure as NSString).floatValue
-                    airportAlt = AltFloat;
-                    
+                if (elevation == ""){
+                    self.errorMsg(error: "Airport not found")
+                } else {
+                //
+                    let AltFloat = Float(elevation)! * 3.28084  //convert meters to feet
+                    let baroPressure = json["current_observation"]["pressure_in"].stringValue
+                    DispatchQueue.main.sync() {
+                        self.updateLabel(progressText: city)
+                        self.airportAltitudeTextBox.text = String(format: "%.0f", AltFloat)
+                        self.airportBarometricPressureTextBox.text = baroPressure
+                        gotAirport = true;
+                        airportPress = (baroPressure as NSString).floatValue
+                        airportAlt = AltFloat;
+                    }
                 }
             } catch let error as NSError {
                 print(error)
+                self.errorMsg(error: "Could not get nearest barometer reading")
             }
             }.resume()
     }
@@ -118,20 +134,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 DispatchQueue.main.sync() {
                     self.airportNameValue.text = icao
                 }
+                self.updateLabel(progressText: "Finding nearest airport...")
                 self.populateFromAirport(airport: icao)
             } catch let error as NSError {
                 print(error)
+                self.errorMsg(error: "Could not get nearest barometer reading")
             }
             }.resume()
     }
     
+    func textFieldDidChange(textField : UITextField){
+        if ((airportNameValue.text as! String).characters.count == 4){
+            populateFromAirport(airport: (airportNameValue.text as! String))
+            self.view.endEditing(true)
+        }
+    }
     
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startAltimeter();
-        determineMyCurrentLocation()
+        //startAltimeter();
+        //
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "startAltimeter", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(startAltimeter), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        airportNameValue.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
+        UserDefaults.standard.register(defaults: [String: Any]())
     }
+    
     
     
     func updateLabel(progressText: String) {
@@ -199,6 +229,52 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let yourCalculatedAltString = NSString(format: "%.0f", yourCalculatedAlt)
             yourBarometricPressureTextBox.resignFirstResponder()
             yourAltitudeLabel.text = (yourCalculatedAltString as String) + " ft"
+            
+            if (!initialSpeech){
+                if (userDefaults.bool(forKey: "announceonlaunch")){
+                    //purposeful misspelling
+                    say (text: "Your altatude is " + (yourCalculatedAltString as String) + " feet")
+                }
+                initialSpeech = true;
+            }
+            
+            //print ((yourCalculatedAltString as String).characters.count)
+            currentAlt = firstChar(text:yourCalculatedAltString as String)
+            currentAltFull = (yourCalculatedAltString as String)
+            
+            if (Int(currentAltFull)! > 999){
+                if (userDefaults.string(forKey: "voiceannouncements") == "descentonly"){
+                    if (prevAlt != "" && Int(prevAltFull)! > Int(currentAltFull)!){
+                        say(text: prevAlt + " thousand")
+                    }
+                } else if (userDefaults.string(forKey: "voiceannouncements") == "on") {
+                    if (prevAlt != "" && Int(prevAltFull)! > Int(currentAltFull)!){
+                        say(text: prevAlt + " thousand")
+                    }
+                    if (prevAlt != "" && Int(prevAltFull)! < Int(currentAltFull)!){
+                        say(text: currentAlt + " thousand")
+                    }
+                } else {
+                    
+                }
+            } else {
+                if (prevAltFull != "" && currentAltFull != "" && Int(prevAltFull)! > 999 && Int(currentAltFull)! <= 999 && userDefaults.string(forKey: "voiceannouncements") == "descentonly") {
+                    say(text: "one thousand")
+                }
+            }
+            
+            
+            if (Int(currentAltFull)! > 99 && Int(currentAltFull)! < 1000){
+                if (userDefaults.string(forKey: "voiceannouncements") == "descentonly"){
+                    if (prevAlt != "" && Int(prevAltFull)! >= 500 && Int(currentAltFull)! < 500){
+                        say(text: "five hundred")
+                    }
+                }
+            }
+            
+            prevAlt = firstChar(text: yourCalculatedAltString as String)
+            prevAltFull = (yourCalculatedAltString as String)
+            
             if (yourCalculatedAltString != "-inf") {
                 yourAltitudeCaptionLabel.isHidden = false
                 yourAltitudeLabel.isHidden = false
@@ -214,19 +290,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
-    
     @objc func updatePressure()
     {
         if (pressure > 1) {
+            //print("Pressure is " + String(format: "%.4f", pressureInHg))
             yourBarometricPressureTextBox!.text = String(format: "%.4f", pressureInHg)
             gotPressure = true;
+        } else {
+            print("yourBarometricPressureTextBox is nil")
         }
     }
     
+    func firstChar(text: String) -> String{
+        return String(text[text.startIndex])
+//        let firstChar = String(Array((text as String))[0])
+//        print ("Firstchar is " + firstChar)
+//        return firstChar
+    }
     
     
     func startAltimeter() {
 
+        determineMyCurrentLocation()
         
         // Check if altimeter feature is available
         if (CMAltimeter.isRelativeAltitudeAvailable()) {
@@ -241,18 +326,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     // If there's an error, stop updating and alert the user
                     
                     self.stopAltimeter()
-                    print ("error")
-                    //let alertView = UIAlertView(title: "Error", message: error!.localizedDescription, delegate: nil, cancelButtonTitle: "OK")
-                    //alertView.show()
+                    self.errorMsg(error: "Error getting current barometer reading from phone")
+                    
                 } else {
                     pressure = altitudeData!.pressure.floatValue
                     pressureInHg = pressure * 0.2953;
                     self.updatePressure();
                     self.UpdateAltitude()
+                    // delayed code, by default run in main thread
+                    
+                    
                 }
             })
         } else {
             print("No altimeter on this device")
+            errorMsg(error: "This device does not have a barometer and is incompatible with BaroAltimeter")
             //let alertView = UIAlertView(title: "Error", message: "Barometer not available on this device.", delegate: nil, cancelButtonTitle: "OK")
             //alertView.show()
             
@@ -260,8 +348,47 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     func stopAltimeter() {
+        initialSpeech = false;
         altimeter.stopRelativeAltitudeUpdates() // Stop updates
         print("Stopped relative altitude updates.")
     }
+    
+    
+    
+    func errorMsg(error: String){
+        print ("Showing error " + error)
+        DispatchQueue.main.sync() {
+            let alertView = UIAlertView(title: "Error", message: error, delegate: nil, cancelButtonTitle: "OK")
+            alertView.show()
+        }
+    }
+    
+    
+    
+    func say(text: String) {
+        if (text.isEmpty) { return }
+        
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayback, with: [.duckOthers])
+            try audioSession.setActive(true)
+        } catch {
+            return
+        }
+        
+        let utterance = AVSpeechUtterance(string:text)
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
+        utterance.volume = 1.0
+        self.synthesizer.speak(utterance)
+        self.perform(#selector(resumeAudio), with: nil, afterDelay: 3.0)
+    }
+    
+    func resumeAudio() {
+        do {
+            try self.audioSession.setActive(false);
+        } catch {
+            
+        }
+    }
+    
 }
 

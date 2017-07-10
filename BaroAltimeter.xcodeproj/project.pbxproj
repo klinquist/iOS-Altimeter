@@ -13,6 +13,7 @@
 		012ACC5119C69AA00006E3CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012ACC5019C69AA00006E3CE /* Images.xcassets */; };
 		012ACC5419C69AA00006E3CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 012ACC5219C69AA00006E3CE /* LaunchScreen.xib */; };
 		012ACC6A19C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 012ACC6919C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg */; };
+		01DCC1A11F1303C800872CC6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 01DCC1A01F1303C800872CC6 /* Settings.bundle */; };
 		01E785931F0DB23F0034E9C7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E785921F0DB23F0034E9C7 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		012ACC5019C69AA00006E3CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		012ACC5319C69AA00006E3CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		012ACC6919C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MidContinent_altimeter_mb.jpg; sourceTree = "<group>"; };
+		01DCC1A01F1303C800872CC6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		01E785921F0DB23F0034E9C7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,6 +44,7 @@
 		012ACC3B19C69AA00006E3CE = {
 			isa = PBXGroup;
 			children = (
+				01DCC1A01F1303C800872CC6 /* Settings.bundle */,
 				012ACC4619C69AA00006E3CE /* Altimeter */,
 				012ACC4519C69AA00006E3CE /* Products */,
 			);
@@ -111,6 +114,7 @@
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = YYE9CDH9RT;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -139,6 +143,7 @@
 			files = (
 				012ACC6A19C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg in Resources */,
 				012ACC4F19C69AA00006E3CE /* Main.storyboard in Resources */,
+				01DCC1A11F1303C800872CC6 /* Settings.bundle in Resources */,
 				012ACC5419C69AA00006E3CE /* LaunchScreen.xib in Resources */,
 				012ACC5119C69AA00006E3CE /* Images.xcassets in Resources */,
 			);
@@ -217,7 +222,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -256,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -268,13 +273,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YYE9CDH9RT;
 				INFOPLIST_FILE = Altimeter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linquist.altimeter;
 				PRODUCT_NAME = BaroAltimeter;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
@@ -283,13 +291,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YYE9CDH9RT;
 				INFOPLIST_FILE = Altimeter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linquist.altimeter;
 				PRODUCT_NAME = BaroAltimeter;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
