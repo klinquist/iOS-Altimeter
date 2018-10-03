@@ -15,53 +15,15 @@
 		012ACC6A19C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 012ACC6919C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg */; };
 		01DCC1A11F1303C800872CC6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 01DCC1A01F1303C800872CC6 /* Settings.bundle */; };
 		01E785931F0DB23F0034E9C7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E785921F0DB23F0034E9C7 /* SwiftyJSON.swift */; };
-		A05E727D1F841D1D00DA162F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A05E727B1F841D1D00DA162F /* Interface.storyboard */; };
-		A05E727F1F841D1D00DA162F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A05E727E1F841D1D00DA162F /* Assets.xcassets */; };
-		A05E72861F841D1D00DA162F /* watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A05E72851F841D1D00DA162F /* watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A05E728B1F841D1D00DA162F /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E728A1F841D1D00DA162F /* InterfaceController.swift */; };
-		A05E728D1F841D1D00DA162F /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E728C1F841D1D00DA162F /* ExtensionDelegate.swift */; };
-		A05E728F1F841D1D00DA162F /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E728E1F841D1D00DA162F /* NotificationController.swift */; };
-		A05E72911F841D1D00DA162F /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E72901F841D1D00DA162F /* ComplicationController.swift */; };
-		A05E72931F841D1D00DA162F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A05E72921F841D1D00DA162F /* Assets.xcassets */; };
-		A05E72981F841D1D00DA162F /* watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A05E72791F841D1D00DA162F /* watch.app */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A05E72871F841D1D00DA162F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 012ACC3C19C69AA00006E3CE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A05E72841F841D1D00DA162F;
-			remoteInfo = "watch Extension";
-		};
-		A05E72961F841D1D00DA162F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 012ACC3C19C69AA00006E3CE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A05E72781F841D1D00DA162F;
-			remoteInfo = watch;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		A05E729C1F841D1D00DA162F /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				A05E72861F841D1D00DA162F /* watch Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A05E72A01F841D1D00DA162F /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				A05E72981F841D1D00DA162F /* watch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,11 +41,9 @@
 		012ACC6919C69ADF0006E3CE /* MidContinent_altimeter_mb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MidContinent_altimeter_mb.jpg; sourceTree = "<group>"; };
 		01DCC1A01F1303C800872CC6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		01E785921F0DB23F0034E9C7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		A05E72791F841D1D00DA162F /* watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05E727C1F841D1D00DA162F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		A05E727E1F841D1D00DA162F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A05E72801F841D1D00DA162F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A05E72851F841D1D00DA162F /* watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05E728A1F841D1D00DA162F /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		A05E728C1F841D1D00DA162F /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		A05E728E1F841D1D00DA162F /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
@@ -95,13 +55,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		012ACC4119C69AA00006E3CE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A05E72821F841D1D00DA162F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -126,8 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				012ACC4419C69AA00006E3CE /* BaroAltimeter.app */,
-				A05E72791F841D1D00DA162F /* watch.app */,
-				A05E72851F841D1D00DA162F /* watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,46 +145,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				A05E72971F841D1D00DA162F /* PBXTargetDependency */,
 			);
 			name = BaroAltimeter;
 			productName = Altimeter;
 			productReference = 012ACC4419C69AA00006E3CE /* BaroAltimeter.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A05E72781F841D1D00DA162F /* watch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A05E729D1F841D1D00DA162F /* Build configuration list for PBXNativeTarget "watch" */;
-			buildPhases = (
-				A05E72771F841D1D00DA162F /* Resources */,
-				A05E729C1F841D1D00DA162F /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A05E72881F841D1D00DA162F /* PBXTargetDependency */,
-			);
-			name = watch;
-			productName = watch;
-			productReference = A05E72791F841D1D00DA162F /* watch.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		A05E72841F841D1D00DA162F /* watch Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A05E72991F841D1D00DA162F /* Build configuration list for PBXNativeTarget "watch Extension" */;
-			buildPhases = (
-				A05E72811F841D1D00DA162F /* Sources */,
-				A05E72821F841D1D00DA162F /* Frameworks */,
-				A05E72831F841D1D00DA162F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "watch Extension";
-			productName = "watch Extension";
-			productReference = A05E72851F841D1D00DA162F /* watch Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -242,23 +158,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Kristopher Linquist";
 				TargetAttributes = {
 					012ACC4319C69AA00006E3CE = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = YYE9CDH9RT;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
-					A05E72781F841D1D00DA162F = {
-						CreatedOnToolsVersion = 9.0;
-						DevelopmentTeam = YYE9CDH9RT;
-						ProvisioningStyle = Automatic;
-					};
-					A05E72841F841D1D00DA162F = {
-						CreatedOnToolsVersion = 9.0;
-						DevelopmentTeam = YYE9CDH9RT;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -277,8 +183,6 @@
 			projectRoot = "";
 			targets = (
 				012ACC4319C69AA00006E3CE /* BaroAltimeter */,
-				A05E72781F841D1D00DA162F /* watch */,
-				A05E72841F841D1D00DA162F /* watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -296,23 +200,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A05E72771F841D1D00DA162F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A05E727F1F841D1D00DA162F /* Assets.xcassets in Resources */,
-				A05E727D1F841D1D00DA162F /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A05E72831F841D1D00DA162F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A05E72931F841D1D00DA162F /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -326,31 +213,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A05E72811F841D1D00DA162F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A05E728F1F841D1D00DA162F /* NotificationController.swift in Sources */,
-				A05E72911F841D1D00DA162F /* ComplicationController.swift in Sources */,
-				A05E728D1F841D1D00DA162F /* ExtensionDelegate.swift in Sources */,
-				A05E728B1F841D1D00DA162F /* InterfaceController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A05E72881F841D1D00DA162F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A05E72841F841D1D00DA162F /* watch Extension */;
-			targetProxy = A05E72871F841D1D00DA162F /* PBXContainerItemProxy */;
-		};
-		A05E72971F841D1D00DA162F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A05E72781F841D1D00DA162F /* watch */;
-			targetProxy = A05E72961F841D1D00DA162F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		012ACC4D19C69AA00006E3CE /* Main.storyboard */ = {
@@ -388,14 +251,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -434,14 +305,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -469,17 +348,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kristopher Linquist (D57P3YEAQ7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YYE9CDH9RT;
 				INFOPLIST_FILE = Altimeter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.linquist.altimeter;
 				PRODUCT_NAME = BaroAltimeter;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
@@ -488,152 +367,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kristopher Linquist (D57P3YEAQ7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YYE9CDH9RT;
 				INFOPLIST_FILE = Altimeter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.linquist.altimeter;
 				PRODUCT_NAME = BaroAltimeter;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = "arm64 armv7";
-			};
-			name = Release;
-		};
-		A05E729A1F841D1D00DA162F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = YYE9CDH9RT;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.linquist.altimeter.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
-			};
-			name = Debug;
-		};
-		A05E729B1F841D1D00DA162F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = YYE9CDH9RT;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.linquist.altimeter.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
-			};
-			name = Release;
-		};
-		A05E729E1F841D1D00DA162F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kristopher Linquist (D57P3YEAQ7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = YYE9CDH9RT;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				IBSC_MODULE = watch_Extension;
-				INFOPLIST_FILE = watch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.linquist.altimeter.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
-			};
-			name = Debug;
-		};
-		A05E729F1F841D1D00DA162F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kristopher Linquist (D57P3YEAQ7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = YYE9CDH9RT;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				IBSC_MODULE = watch_Extension;
-				INFOPLIST_FILE = watch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.linquist.altimeter.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -654,24 +399,6 @@
 			buildConfigurations = (
 				012ACC6419C69AA00006E3CE /* Debug */,
 				012ACC6519C69AA00006E3CE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A05E72991F841D1D00DA162F /* Build configuration list for PBXNativeTarget "watch Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A05E729A1F841D1D00DA162F /* Debug */,
-				A05E729B1F841D1D00DA162F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A05E729D1F841D1D00DA162F /* Build configuration list for PBXNativeTarget "watch" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A05E729E1F841D1D00DA162F /* Debug */,
-				A05E729F1F841D1D00DA162F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

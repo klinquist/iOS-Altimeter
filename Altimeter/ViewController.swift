@@ -3,12 +3,9 @@
 //  Altimeter
 //
 //  Created by Kristopher Linquist
-//  Copyright (c) 2017 Kristopher Linquist. All rights reserved.
+//  Copyright (c) 2018 Kristopher Linquist. All rights reserved.
 //
 
-
-
-var wuapi = "343fae88a6936714"  //weather underground API key
 import UIKit
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -90,21 +87,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     
     func populateFromAirport(airport: String) {
-        let url = URL(string: "https://api.wunderground.com/api/" + wuapi + "/forecast/geolookup/conditions/q/" +  airport + ".json")
+        let url = URL(string: "https://api.baroaltimeter.com/getairportdata/" +  airport)
         let request = URLRequest(url: url!)
         let session = URLSession.shared
         session.dataTask(with: request) {data, response, error in
             guard let data = data, error == nil else { return }
             do {
                 let json = try JSON(data: data)
-                let city = json["location"]["city"].stringValue
-                let elevation = json["current_observation"]["display_location"]["elevation"].stringValue
+                let city = json["data"]["city"].stringValue
+                let elevation = json["data"]["alt"].stringValue
                 if (elevation == ""){
                     self.errorMsg(error: "Airport not found")
                 } else {
                 //
                     let AltFloat = Float(elevation)! * 3.28084  //convert meters to feet
-                    let baroPressure = json["current_observation"]["pressure_in"].stringValue
+                    let baroPressure = json["data"]["pressure"].stringValue
                     DispatchQueue.main.sync() {
                         self.updateLabel(progressText: city)
                         self.airportAltitudeTextBox.text = String(format: "%.0f", AltFloat)
@@ -123,14 +120,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     
     func populateFromLocation(lat: Double,long: Double){
-        let url = URL(string: "https://api.wunderground.com/api/" + wuapi + "/forecast/geolookup/conditions/q/" +  String(lat) + "," + String(long) + ".json")
+        let url = URL(string: "https://api.baroaltimeter.com/findairport/" +  String(lat) + "/" + String(long))
         let request = URLRequest(url: url!)
         let session = URLSession.shared
         session.dataTask(with: request) {data, response, error in
             guard let data = data, error == nil else { return }
             do {
                 let json = try JSON(data: data)
-                let icao = json["location"]["nearby_weather_stations"]["airport"]["station"][0]["icao"].stringValue
+                let icao = json["icao"].stringValue
                 DispatchQueue.main.sync() {
                     self.airportNameValue.text = icao
                 }
@@ -138,14 +135,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.populateFromAirport(airport: icao)
             } catch let error as NSError {
                 print(error)
-                self.errorMsg(error: "Could not get nearest barometer reading")
+                self.errorMsg(error: "Could not find nearest airport")
             }
             }.resume()
     }
     
-    func textFieldDidChange(textField : UITextField){
-        if ((airportNameValue.text as! String).characters.count == 4){
-            populateFromAirport(airport: (airportNameValue.text as! String))
+    @objc func textFieldDidChange(textField : UITextField){
+        if (airportNameValue.text!.count == 4){
+            populateFromAirport(airport: airportNameValue.text!)
             self.view.endEditing(true)
         }
     }
@@ -157,9 +154,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         //startAltimeter();
         //
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: "startAltimeter", name: UIApplicationDidBecomeActiveNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(startAltimeter), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-        airportNameValue.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
-        UserDefaults.standard.register(defaults: [String: Any]())
+        if (CMAltimeter.isRelativeAltitudeAvailable()) {
+            NotificationCenter.default.addObserver(self, selector: #selector(startAltimeter), name: UIApplication.didBecomeActiveNotification, object: nil)
+            airportNameValue.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+            UserDefaults.standard.register(defaults: [String: Any]())
+        } else {
+            errorMsg(error: "This device does not have a barometer and is incompatible with BaroAltimeter. Please contact kris@baroaltimeter.com for a refund.")
+        }
     }
     
     
@@ -222,6 +223,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     
     func UpdateAltitude() {
+        //print("UpdateAltitude Func")
         if (gotAirport == true && gotPressure == true){
             let airportPresshPa = airportPress * 3.38638866667
             var yourCalculatedAlt = pow(10, log10(pressure/airportPresshPa)/5.2558797)-1
@@ -244,22 +246,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             if (Int(currentAltFull)! > 999){
                 if (userDefaults.string(forKey: "voiceannouncements") == "descentonly"){
-                    if (prevAlt != "" && Int(prevAltFull)! > Int(currentAltFull)!){
-                        say(text: prevAlt + " thousand")
+                    if (prevAlt != "" && Int(prevAlt)! > Int(currentAlt)! && Int(prevAltFull)! > Int(currentAltFull)!){
+                        print("Descending, =prevAltFirstChar = " + prevAlt + " and currentAltFirstChar = " + currentAlt + " prevAltFull = " + prevAltFull + " currentAltFull = " + currentAltFull)
+                        say(text: "descending through " + currentAlt + " thousand")
                     }
                 } else if (userDefaults.string(forKey: "voiceannouncements") == "on") {
-                    if (prevAlt != "" && Int(prevAltFull)! > Int(currentAltFull)!){
-                        say(text: prevAlt + " thousand")
+                    if (prevAlt != "" && Int(prevAlt)! > Int(currentAlt)! && Int(prevAltFull)! > Int(currentAltFull)!){
+                        print("Descending, =prevAltFirstChar = " + prevAlt + " and currentAltFirstChar = " + currentAlt + " prevAltFull = " + prevAltFull + " currentAltFull = " + currentAltFull)
+                        say(text: "descending through " + currentAlt + " thousand")
                     }
-                    if (prevAlt != "" && Int(prevAltFull)! < Int(currentAltFull)!){
-                        say(text: currentAlt + " thousand")
+                    if (prevAlt != "" && (Int(prevAlt)! < Int(currentAlt)! || Int(prevAltFull)! < 1000 && Int(currentAltFull)! > 999)){
+                        print("Ascending, prevAltFirstChar = " + prevAlt + " and currentAltFirstChar = " + currentAlt + " prevAltFull = " + prevAltFull + " currentAltFull = " + currentAltFull)
+                        say(text: "ascending through " + currentAlt + " thousand")
                     }
                 } else {
                     
                 }
             } else {
-                if (prevAltFull != "" && currentAltFull != "" && Int(prevAltFull)! > 999 && Int(currentAltFull)! <= 999 && userDefaults.string(forKey: "voiceannouncements") == "descentonly") {
-                    say(text: "one thousand")
+                if (prevAltFull != "" && currentAltFull != "" && (userDefaults.string(forKey: "voiceannouncements") == "descentonly") || userDefaults.string(forKey: "voiceannouncements") == "on") {
+                    if (prevAltFull != "" && currentAltFull != "" && Int(prevAltFull)! > 999 && Int(currentAltFull)! <= 999 ){
+                        print("Descending through 1000, prevAltFirstChar = " + prevAlt + " and currentAltFirstChar = " + currentAlt + " prevAltFull = " + prevAltFull + " currentAltFull = " + currentAltFull)
+                        say(text: "descending through one thousand")
+                    }
                 }
             }
             
@@ -274,6 +282,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             prevAlt = firstChar(text: yourCalculatedAltString as String)
             prevAltFull = (yourCalculatedAltString as String)
+            
+//            if (prevAltFull.count == 3) {
+//                prevAlt = "0"
+//            }
             
             if (yourCalculatedAltString != "-inf") {
                 yourAltitudeCaptionLabel.isHidden = false
@@ -292,6 +304,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @objc func updatePressure()
     {
+        //print("UpdatePressure Func")
         if (pressure > 1) {
             //print("Pressure is " + String(format: "%.4f", pressureInHg))
             yourBarometricPressureTextBox!.text = String(format: "%.4f", pressureInHg)
@@ -309,22 +322,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
-    func startAltimeter() {
+    @objc func startAltimeter() {
 
-        determineMyCurrentLocation()
-        
+        print("startAltimeter Func")
         // Check if altimeter feature is available
         if (CMAltimeter.isRelativeAltitudeAvailable()) {
             
+            determineMyCurrentLocation()
             //self.activityIndicator.startAnimating()
-            
             // Start altimeter updates, add it to the main queue
             altimeter.startRelativeAltitudeUpdates(to: OperationQueue.main, withHandler: { (altitudeData:CMAltitudeData?, error:Error?) in
-                
                 if (error != nil) {
-                    
                     // If there's an error, stop updating and alert the user
-                    
                     self.stopAltimeter()
                     self.errorMsg(error: "Error getting current barometer reading from phone")
                     
@@ -334,42 +343,51 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     self.updatePressure();
                     self.UpdateAltitude()
                     // delayed code, by default run in main thread
-                    
-                    
                 }
             })
         } else {
             print("No altimeter on this device")
-            errorMsg(error: "This device does not have a barometer and is incompatible with BaroAltimeter")
-            //let alertView = UIAlertView(title: "Error", message: "Barometer not available on this device.", delegate: nil, cancelButtonTitle: "OK")
-            //alertView.show()
-            
+            errorMsg(error: "This device does not have a barometer and is incompatible with BaroAltimeter. Please contact kris@baroaltimeter.com for a refund.")
         }
-        
+    
     }
+    
+    
+    
     func stopAltimeter() {
-        initialSpeech = false;
-        altimeter.stopRelativeAltitudeUpdates() // Stop updates
-        print("Stopped relative altitude updates.")
+        print("stopAltimeter Func")
+        if (CMAltimeter.isRelativeAltitudeAvailable()) {
+            initialSpeech = false;
+            altimeter.stopRelativeAltitudeUpdates() // Stop updates
+            print("Stopped relative altitude updates.")
+        }
     }
     
     
     
     func errorMsg(error: String){
         print ("Showing error " + error)
-        DispatchQueue.main.sync() {
-            let alertView = UIAlertView(title: "Error", message: error, delegate: nil, cancelButtonTitle: "OK")
-            alertView.show()
-        }
+        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+        alertWindow.rootViewController = UIViewController()
+        alertWindow.windowLevel = UIWindow.Level.alert + 1;
+        alertWindow.makeKeyAndVisible()
+        let showErrorAlert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        showErrorAlert.addAction(cancelAction)
+        present(showErrorAlert, animated: true, completion: nil)
+        alertWindow.rootViewController?.present(showErrorAlert, animated: true, completion: nil)
     }
     
     
     
     func say(text: String) {
+        print("Say Func")
         if (text.isEmpty) { return }
-        
+        let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryPlayback, with: [.duckOthers])
+            //try audioSession.setCategory(convertFromAVAudioSessionCategory(AVAudioSession.Category.playback), with: [.duckOthers])
+            //audioSession.setCategory(category: "playback", mode: "default", options: ["duckOthers"])
+            try audioSession.setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: [AVAudioSession.CategoryOptions.duckOthers])
             try audioSession.setActive(true)
         } catch {
             return
@@ -382,7 +400,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.perform(#selector(resumeAudio), with: nil, afterDelay: 3.0)
     }
     
-    func resumeAudio() {
+    @objc func resumeAudio() {
         do {
             try self.audioSession.setActive(false);
         } catch {
@@ -392,3 +410,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
+}
